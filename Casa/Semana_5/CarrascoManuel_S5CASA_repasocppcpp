@@ -2,6 +2,7 @@
 #include <random>
 #include <array>
 #include <algorithm>
+#include <fstream>
 float div_f(float mivaflotante, int mivaentera);
 int minimo(std::array<int,300>& arr);
 void impimp(std::array<int,300>&arr); //IMPrimir IMPares --> impimp
@@ -19,14 +20,18 @@ std::cout<< "3. a/m= "<< z<<"\n";
 //Cuarto punto 
 
 std::array<int, 300> Ar;
-std::random_device rd;   // non-deterministic generator
-std::mt19937 gen(rd());  // to seed mersenne twister.
+std::random_device rd;  
+std::mt19937 gen(rd()); 
 std::uniform_int_distribution<int> dist(0,900);
 for (int i = 0; i<300; i++){
     Ar[i]=dist(gen);
 }
 std::cout<<"4. El arreglo fue creado \n";
-
+std::ofstream archivo ("ArregloAleatorio.txt");
+for (int i = 0; i<300; i++){
+    archivo<< i<<", "<< Ar[i]<< "\n";
+}
+archivo.close();
 //Quinto punto 
 std::cout<< "5. El arreglo es: ";
 for (int i = 0; i<300; i++){
@@ -52,7 +57,7 @@ int* min_ar2 = std::min_element(Ar.begin(), Ar.end());
 std::cout<<"El valor minimo del arreglo usando std::min_element es "<< *min_ar2<<"\n";
 //Onceabo punto 
 std::cout<<"11. La función de imprimir impares fue creada \n";
-std::cout<<"Los valores impares y menores a 800 del arreglo son: \n";
+std::cout<<"Los valores impares hasta encontrar un valor mayor a 800 del arreglo son: \n";
 impimp(Ar);
 }
 float div_f(float mivaflotante, int mivaentera){
@@ -77,6 +82,7 @@ void impimp(std::array<int,300>&arr){
         }
         else if (arr[i]>800){
             std::cout<<"\nValor mayor a 800 encontrado en la posición " << (i+1)<<"\n";
+            std::cout<<"Este valor fue " << arr[i];
             break;
         }
         else{
