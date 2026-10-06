@@ -11,7 +11,6 @@ double dvydt(double x, double y);
 double G = 0.00029591220828;
 double M_sol = 1; //Masas solares 
 double m_tierra = 0.000003; //Masa solares
-double r = 1; //UA
 //Condiciones iniciales
 double x_0 = 1;
 double y_0 = 0;
@@ -28,7 +27,7 @@ int main(){
 const double N = 5001;
 const int n = 5001;
 
-const double t_final= 365; // t_0 = 0 
+const double t_final= 366; // t_0 = 0 
 const double h = t_final/(N-1);
 std::cout<<"h es igual a "<<h <<"\n";
 std::array<double, n> ArT;
