@@ -3,7 +3,7 @@ import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
 
-dat3 = np.genfromtxt("pos.txt", delimiter=", ")
+dat3 = np.genfromtxt("ExtremosFijos.txt", delimiter=", ")
 # Extraer el vector X (fila 0)
 x = dat3[0, :]
 dt= (0.5/300)*0.02
