@@ -7,4 +7,4 @@ ExtremoForzado.txt : CarrascoManuel_S8CASA_EDP.cpp
 	./a.out 
 
 clean: 
-	rm -f ExtremoForzado.txt ExtremosFijos.txt a.out
+	rm -f ExtremoForzado.txt ExtremosFijos.txt a.out  

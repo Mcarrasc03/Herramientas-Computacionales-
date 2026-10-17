@@ -6,7 +6,7 @@ import time
 t_inicio = time.perf_counter()
 
 print("¡¡¡ADVERTENCIA!!!: Este codigo suele demorar en correr al rededor de 5 minutos, no alarmarse por demora")
-
+print("En caso de no querer esperar, detener el código \nLas imagenes de PLOTS ya fueron creadas si se usó el makefile y los videos van adjuntados en la tarea")
 DatosForzado = np.genfromtxt("ExtremoForzado.txt", delimiter=", ")
 
 xf = DatosForzado[0, :]
@@ -58,6 +58,7 @@ writer = animation.FFMpegWriter(fps=60, bitrate=1800)
 ani.save('CuerdaForzada.mp4', writer=writer)
 
 plt.close()
+
 t_intermedio= time.perf_counter()
 tiempo_parcial = t_intermedio - t_inicio
 minutos = tiempo_parcial//60
