@@ -14,7 +14,7 @@ vmin = np.min(tensor_temperaturaf)
 vmax = np.max(tensor_temperaturaf)
 
 # Preparamos el objeto de la imagen vacío o con ceros
-ax[0,0].imshow(
+im0= ax[0,0].imshow(
     tensor_temperaturaf[0,:,:], 
     cmap='hot', 
     vmin=vmin, 
@@ -22,28 +22,34 @@ ax[0,0].imshow(
     origin='lower', 
 
 )
-ax[0,1].imshow(
+fig.colorbar(im0, ax=ax[0,0])
+
+im1= ax[0,1].imshow(
     tensor_temperaturaf[500,:,:], 
     cmap='hot', 
     vmin=vmin, 
-    vmax=vmax, 
+    vmax=75, 
     origin='lower', 
 
 )
-ax[1,0].imshow(
+fig.colorbar(im1, ax=ax[0,1])
+im2=ax[1,0].imshow(
     tensor_temperaturaf[5000,:,:], 
     cmap='hot', 
     vmin=vmin, 
     vmax=50.5, 
     origin='lower', 
 )
-ax[1,1].imshow(
+
+fig.colorbar(im2, ax=ax[1,0])
+im3=ax[1,1].imshow(
     tensor_temperaturaf[10000,:,:], 
     cmap='hot', 
     vmin=vmin, 
     vmax=50.1, 
     origin='lower', 
 )
+fig.colorbar(im3, ax=ax[1,1])
 plt.savefig("Difusion.png")
 
 
@@ -57,7 +63,7 @@ vmin = np.min(tensor_temperaturaa)
 vmax = np.max(tensor_temperaturaa)
 
 # Preparamos el objeto de la imagen vacío o con ceros
-ax[0,0].imshow(
+im0=ax[0,0].imshow(
     tensor_temperaturaa[0,:,:], 
     cmap='hot', 
     vmin=vmin, 
@@ -65,26 +71,30 @@ ax[0,0].imshow(
     origin='lower', 
 
 )
-ax[0,1].imshow(
+fig.colorbar(im0, ax=ax[0,0])
+im1=ax[0,1].imshow(
     tensor_temperaturaa[500,:,:], 
     cmap='hot', 
     vmin=vmin, 
-    vmax=vmax, 
+    vmax=75, 
     origin='lower', 
 
 )
-ax[1,0].imshow(
+fig.colorbar(im1, ax=ax[0,1])
+im2=ax[1,0].imshow(
     tensor_temperaturaa[5000,:,:], 
     cmap='hot', 
     vmin=vmin, 
     vmax=55, 
     origin='lower', 
 )
-ax[1,1].imshow(
+fig.colorbar(im2, ax=ax[1,0])
+im3=ax[1,1].imshow(
     tensor_temperaturaa[10000,:,:], 
     cmap='hot', 
     vmin=vmin, 
     vmax=55, 
     origin='lower', 
 )
+fig.colorbar(im3, ax=ax[1,1])
 plt.savefig("Difusion_Ab.png")
