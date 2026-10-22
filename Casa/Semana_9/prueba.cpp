@@ -11,7 +11,7 @@ const double t_final = 2500;
 const double dt = (0.2*(dx*dx))/nu;
 const int nt = (t_final/dt) +1; 
 const double Nt = (t_final/dt) +1; 
-const int inicio_calienteX = 0.2/dx;
+
 int main(){
 std::cout<<dx<<"\n";
     /*    

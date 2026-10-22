@@ -34,14 +34,14 @@ ax[1,0].imshow(
     tensor_temperaturaf[5000,:,:], 
     cmap='hot', 
     vmin=vmin, 
-    vmax=55, 
+    vmax=50.5, 
     origin='lower', 
 )
 ax[1,1].imshow(
     tensor_temperaturaf[10000,:,:], 
     cmap='hot', 
     vmin=vmin, 
-    vmax=51, 
+    vmax=50.1, 
     origin='lower', 
 )
 plt.savefig("Difusion.png")
