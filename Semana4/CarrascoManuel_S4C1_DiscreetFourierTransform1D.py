@@ -34,14 +34,40 @@ plt.plot(freq, np.abs(T_k))
 plt.show()
 # 1) Almacene los datos de signal.dat. La columna 1 es el tiempo y la columna 2 es su señal f(t).
 #Grafique su señal en función del tiempo.
-signal=np.genfromtxt('signal.dat', delimiter=",")
-time=signal[:,0]
-señal=signal[:,1]
-plt.plot(time, signal)
-plt.show()
 # 2) Use fftfreq (BONO si usa su implementación propia) y haga una gráfica de su transformada de fourier en función de las frecuencias.
 
 # 3) Haga un filtro pasa bajos que le permita filtrar el ruido de la señal del punto 1. #
 #Use la gráfica de la transformada de fourier del punto 3 para determinar un valor apropiado de la frecuencia de corte que debe usar para filtrar dicho ruido de alta frecuencia.
 
 # 4) Grafique la señal filtrada
+signal=np.genfromtxt('signal.dat', delimiter=",")
+time=signal[:,0]
+dt= time[1]-time[0]
+señal=signal[:,1]
+Nt=len(señal)
+nt=np.linspace(0,Nt-1, Nt, dtype=int)
+T_t=np.zeros(Nt, dtype= complex)
+for z in range (Nt):
+    T_t[z]=np.sum(señal*np.exp(-1j*2*np.pi*z*nt/Nt))
+
+#plt.plot(time, signal)
+#plt.show()
+fft_t=fft(señal)
+freqt=fftfreq(Nt, dt)
+plt.plot(freqt, np.abs(T_t))
+plt.show()
+for l in range(Nt):
+    frevision=T_t[l]
+    if (np.abs(frevision)< 20):
+        T_t[l]= 0
+    else: 
+        continue  
+plt.plot(freqt, np.abs(T_t))
+plt.show()
+t_n=np.zeros(Nt, dtype=complex)
+kt=np.linspace(0,Nt-1, Nt, dtype=int)
+for h in range (Nt):
+    t_n[h]=np.sum(T_t*np.exp(1j*2*np.pi*h*kt/Nt))
+plt.plot(time, (t_n))
+plt.show()
+
